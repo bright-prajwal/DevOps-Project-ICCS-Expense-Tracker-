@@ -83,11 +83,11 @@ WSGI_APPLICATION = 'Expense_Tracker.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'expense',
         'USER': 'root',
-        'PASSWORD':'Prajwal9075@#',
-        'PORT':'3306',
+        'PASSWORD':'',
+        'PORT':'3307',
     }
 }
 
