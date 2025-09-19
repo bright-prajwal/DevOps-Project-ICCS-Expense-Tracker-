@@ -15,12 +15,10 @@
 #         return redirect('/')
 #     return render(request, 'index.html')
 
-
 from django.shortcuts import render,redirect
 from .models import *
 from django.contrib import messages
 from django.db.models import Sum
-
 
 # def index(request):
 #     if request.method == "POST":
