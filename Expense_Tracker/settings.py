@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'tracker'
+    'tracker',
+    'debug_toolbar',
+    
 ]
 
 MIDDLEWARE = [
@@ -49,6 +51,13 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'Expense_Tracker.middleware.RequestLogginMiddleware.RequestLogging',
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
+]
+
+IINTERNAL_IPS = [
+    # ...
+    "127.0.0.1",
+    # ...
 ]
 
 ROOT_URLCONF = 'Expense_Tracker.urls'
@@ -81,14 +90,28 @@ WSGI_APPLICATION = 'Expense_Tracker.wsgi.application'
 #     }
 # }
 
+from dotenv import load_dotenv
+import os
+env =load_dotenv()
+name=os.getenv('NAME')
+user=os.getenv('USER')
+password=os.getenv('PASSWORD')
+host=os.getenv('HOST')
+port=os.getenv('PORT')
+
+print(name,user)
+
+
+
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'expense',
-        'USER': 'root',
-        'PASSWORD':'',
-        'PORT':'3307',
+        'NAME': os.getenv('NAME'),
+        'USER': os.getenv('USER'),
+        'PASSWORD':os.getenv('PASSWORD'),
+        'HOST':os.getenv('HOST'),
+        'PORT':os.getenv('PORT'),
     }
 }
 
